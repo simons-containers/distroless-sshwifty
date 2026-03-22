@@ -1,0 +1,46 @@
+diff --git a/ui/home.vue b/ui/home.vue
+index c50711f..bab4fc6 100644
+--- a/ui/home.vue
++++ b/ui/home.vue
+@@ -68,11 +68,10 @@
+       @updated="tabUpdated"
+     >
+       <div id="home-content-wrap">
+-        <h1>Hi, this is Sshwifty</h1>
++        <h1>Sshwifty</h1>
+ 
+-        <p>
+-          An Open Source Web SSH Client that enables you to connect to SSH
+-          servers without downloading any additional software.
++        <p>
++
+         </p>
+ 
+         <p>
+
+
+         <p>
+diff --git a/ui/widgets/connect.css b/ui/widgets/connect.css
+index 9df20b4..3d2b3dd 100644
+--- a/ui/widgets/connect.css
++++ b/ui/widgets/connect.css
+@@ -94,6 +94,7 @@
+   font-size: 0.85em;
+   background: #b44;
+   color: #fff;
++  display: none;
+ }
+ 
+ #connect-warning-icon {
+diff --git a/ui/widgets/connect_new.css b/ui/widgets/connect_new.css
+index 3b87b9c..4f90278 100644
+--- a/ui/widgets/connect_new.css
++++ b/ui/widgets/connect_new.css
+@@ -20,7 +20,6 @@
+ @charset "utf-8";
+ 
+ #connect-new {
+-  min-height: 200px;
+   background: #3a3a3a;
+   font-size: 0.75em;
+   padding: 15px;
