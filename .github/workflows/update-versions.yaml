@@ -18,10 +18,8 @@ jobs:
 
       - name: Fetch latest versions
         run: |
-          SSHWIFTY=$(git ls-remote --tags https://github.com/nirui/sshwifty.git/  \
-            | awk -F/ '{print $3}' \
-            | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' \
-            | sed 's/^v//' \
+          SSHWIFTY=$(git ls-remote --tags https://github.com/nirui/sshwifty.git \
+            | awk -F/ '/release/ && !/prebuild|untagged/ {print $3}' \
             | sort -V \
             | tail -1)
 
