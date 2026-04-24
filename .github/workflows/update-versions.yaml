@@ -17,13 +17,19 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Fetch latest versions
-        run: |
-          SSHWIFTY=$(git ls-remote --tags https://github.com/nirui/sshwifty.git \
-            | awk -F/ '/release/ && !/prebuild|untagged/ {print $3}' \
-            | sort -V \
-            | tail -1)
-
-          yq -i ".sshwifty= \"$SSHWIFTY\"" versions.yaml
+        uses: nick-fields/retry@v4
+        with:
+          max_attempts: 5
+          timeout_minutes: 10
+          command: |
+            set -uo pipefail
+            SSHWIFTY=$(git ls-remote --tags https://github.com/nirui/sshwifty.git \
+              | awk -F/ '/release/ && !/prebuild|untagged/ {print $3}' \
+              | sort -V \
+              | tail -1)
+  
+            yq -i ".sshwifty= \"$SSHWIFTY\"" versions.yaml
+            git diff versions.yaml
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
