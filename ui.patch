@@ -1,8 +1,14 @@
 diff --git a/ui/home.vue b/ui/home.vue
-index caa49f3..cf27481 100644
+index caa49f3..9649e3b 100644
 --- a/ui/home.vue
 +++ b/ui/home.vue
-@@ -68,11 +68,10 @@
+@@ -63,16 +63,15 @@
+       :screens="tab.tabs"
+       :view-port="viewPort"
+       @indicated="tabIndicate"
+-      @indicationDismissed="tabDismissIndicator",
++      @indicationDismissed="tabDismissIndicator"
+       @updated="tabUpdated"
        @stopped="tabStopped"
      >
        <div id="home-content-wrap">
