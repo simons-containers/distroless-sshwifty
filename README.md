@@ -1,6 +1,4 @@
-![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-sshwifty/latest_tag?ignore=latest,sha256*&label=latest)  
-![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-sshwifty/size?tag=latest)  
-![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-sshwifty/tags?ignore=latest,sha256*)  
+[![Current Version](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/release.svg)](https://github.com/simons-containers/distroless-sshwifty/pkgs/container/distroless-sshwifty) [![Tags](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/tags.svg)](https://github.com/simons-containers/distroless-sshwifty/pkgs/container/distroless-sshwifty) <br> ![Current Size](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/size.svg) ![Wasted Size](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/wasted.svg) ![Efficiency](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/efficiency.svg) <br> ![Critical](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/critical.svg) ![High](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/high.svg) ![Medium](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/medium.svg) ![Low](https://raw.githubusercontent.com/simons-containers/distroless-sshwifty/badges/.badges/main/low.svg) <br> [![Publish Workflow](https://img.shields.io/github/actions/workflow/status/simons-containers/distroless-sshwifty/deploy.yaml?label=Publish%20Workflow&logo=github)](https://github.com/simons-containers/distroless-sshwifty/actions/workflows/deploy.yaml) [![Update Workflow](https://img.shields.io/github/actions/workflow/status/simons-containers/distroless-sshwifty/update-versions.yaml?label=Update%20Workflow&logo=github)](https://github.com/simons-containers/distroless-sshwifty/actions/workflows/update-versions.yaml) 
 
 # Distroless Sshwifty container
 
@@ -16,21 +14,6 @@ Example:
 docker run -it --rm -v ./config:/etc/sshwifty \
   -e SSHWIFTY_CONFIG=/etc/sshwifty/config.json \
   ghcr.io/simons-containers/distroless-sshwifty:latest
-```
-
-## Building
-
-| Arg | Description |
-|---|---|
-| `SSHWIFTY_VERSION` | Version of Sshwifty to use
-
-Build container using build-args from versions.yaml:
-
-```bash
-docker build -t \
-  distroless-sshwifty:$(yq -r .sshwifty versions.yaml) \
-  $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) \
-  -f Containerfile .
 ```
 
 ## License
