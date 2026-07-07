@@ -1,13 +1,13 @@
 FROM archlinux:base-devel-20260308.0.497099 AS builder
 
 ARG SSHWIFTY_VERSION
-ARG SSHWIFTY_REPO=https://github.com/nirui/sshwifty
+ARG SSHWIFTY_SOURCE
 
 RUN pacman -Sy --noconfirm git go npm >/dev/null
 
 WORKDIR /build/sshwifty
 COPY ./ui.patch /tmp/ui.patch
-RUN git clone ${SSHWIFTY_REPO} . \
+RUN git clone ${SSHWIFTY_SOURCE} . \
   && git checkout ${SSHWIFTY_VERSION} \
   && mv /tmp/ui.patch ./ \
   && git apply ui.patch \
