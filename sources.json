@@ -1,6 +1,6 @@
 {
   "sshwifty": {
-    "version": "0.4.8-beta-release",
+    "version": "0.4.9-beta-release",
     "purl": "pkg:generic/sshwifty",
     "source": {
       "url": "https://github.com/nirui/sshwifty"
