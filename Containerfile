@@ -1,4 +1,4 @@
-FROM archlinux:base-devel-20260816.0.574111 AS builder
+FROM archlinux:base-devel-20261122.0.629543 AS builder
 
 ARG SSHWIFTY_VERSION
 ARG SSHWIFTY_SOURCE
